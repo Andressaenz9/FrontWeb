@@ -22,12 +22,12 @@ export class ContratosArrendadorComponent implements OnInit {
 
   ngOnInit() {
     // Verificar si el token está presente
-    const token = localStorage.getItem('authToken');
+    /*const token = localStorage.getItem('authToken');
     if (!token) {
       console.error('Token no encontrado. Redirigiendo a inicio de sesión.');
       this.router.navigate(['/login']); // Redirigir al inicio de sesión si no hay token
       return;
-    }
+    }*/
 
     // Obtener los contratos del arrendador
     this.obtenerContratos();
