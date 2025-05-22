@@ -1,0 +1,36 @@
+<app-navbar-arrendador></app-navbar-arrendador>
+<div class="background">
+  <div class="properties-section">
+    <h2>Propiedades del Arrendador</h2>
+
+    <button (click)="agregarPropiedad()" class="btn add-btn">
+      Agregar Propiedad
+    </button>
+
+    <div *ngIf="propiedades.length === 0" class="no-properties">
+      <p>No hay propiedades disponibles.</p>
+    </div>
+
+    <div class="properties-grid">
+      <div *ngFor="let propiedad of propiedades" class="property-card">
+        <img [src]="imagenUrl[propiedad.id]" alt="Imagen de la propiedad" />
+
+        <div class="property-info">
+          <h3>{{ propiedad.nombrePropiedad }}</h3>
+          <p><strong>Departamento:</strong> {{ propiedad.departamento }}</p>
+          <p><strong>Municipio:</strong> {{ propiedad.municipio }}</p>
+        </div>
+
+        <div class="button-group">
+          <button (click)="editarPropiedad(propiedad.id)" class="btn edit-btn">
+            Editar Propiedad
+          </button>
+          <button (click)="verDetallePropiedad(propiedad.id)" class="btn view-btn">
+            Ver Detalle
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer-arrendador></app-footer-arrendador>

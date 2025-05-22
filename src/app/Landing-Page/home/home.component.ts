@@ -13,4 +13,7 @@ export class HomeComponent {
   irAlLogin() {
     this.router.navigate(['/login']);  // Cambia la ruta si es necesario
   }
+  irAlArrendador() {
+    this.router.navigate(['/arrendador']);  // Cambia la ruta si es necesario
+  }
 }

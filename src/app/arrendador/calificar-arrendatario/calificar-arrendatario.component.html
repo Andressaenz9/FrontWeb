@@ -1,0 +1,54 @@
+<app-navbar-arrendador></app-navbar-arrendador>
+
+<div class="background">
+  <div class="rating-section">
+    <h2>Calificar Arrendatario</h2>
+
+    <div *ngIf="arrendatariosPorCalificar.length > 0; else noSolicitudes" class="tenants-list">
+      <div class="tenants-grid">
+        <div *ngFor="let arrendatario of arrendatariosPorCalificar" class="tenant-card">
+          <div class="tenant-info">
+            <span class="tenant-name">{{ arrendatario.nombre }} {{ arrendatario.apellido }}</span>
+          </div>
+          <button class="btn rate-btn" (click)="calificar(arrendatario)">Calificar</button>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noSolicitudes>
+      <p class="no-tenants">No hay arrendatarios por calificar.</p>
+    </ng-template>
+
+    <div *ngIf="arrendatarioSeleccionado" class="rating-form-container">
+      <h3>Calificar a {{ arrendatarioSeleccionado.nombre }}</h3>
+      <form (ngSubmit)="enviarCalificacion()" class="rating-form">
+        <div class="form-group">
+          <label for="calificacion">Calificación (1-5 estrellas):</label>
+          <input 
+            type="number" 
+            id="calificacion" 
+            [(ngModel)]="arrendatarioSeleccionado.calificacion" 
+            name="calificacion" 
+            min="1" 
+            max="5" 
+            required
+            class="rating-input"
+          >
+        </div>
+        <div class="form-group">
+          <label for="comentario">Comentario:</label>
+          <textarea 
+            id="comentario" 
+            [(ngModel)]="arrendatarioSeleccionado.comentario" 
+            name="comentario" 
+            rows="4" 
+            required
+            class="comment-input"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn submit-btn">Enviar Calificación</button>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer-arrendador></app-footer-arrendador>
