@@ -2,11 +2,19 @@ import { Component } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { RegistroService } from '../../services/registro.service';
 import { Router } from '@angular/router';
+import { NavbarComponent } from "../navbar/navbar.component";
+import { FooterComponent } from "../footer/footer.component";
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-register',
   templateUrl: './login-register.component.html',
-  styleUrls: ['./login-register.component.css']
+  styleUrls: ['./login-register.component.css'],
+  standalone : true,
+  imports: [ HttpClientModule, CommonModule, FormsModule, NavbarComponent, FooterComponent],
+  providers: [LoginService] 
 })
 
 export class LoginRegisterComponent {

@@ -7,11 +7,13 @@ import { CrearPropiedadComponent } from './arrendador/propiedades-arrendador/cre
 import { DetallePropiedadComponent } from './arrendador/propiedades-arrendador/detalle-propiedad/detalle-propiedad.component';
 import { EditarPropiedadComponent } from './arrendador/propiedades-arrendador/editar-propiedad/editar-propiedad.component';
 import { PropiedadesArrendadorComponent } from './arrendador/propiedades-arrendador/propiedades-arrendador.component';
+import { LoginRegisterComponent } from './Landing-Page/login-register/login-register.component';
 
 export const routes: Routes = [
     {path: '',
     component: PaginaPrincipalComponent
 },
+    { path: 'login', component: LoginRegisterComponent },
     { path: 'arrendador/contratos', component: ContratosArrendadorComponent },
     { path: 'arrendador', component: PrincipalArrendadorComponent },
     { path: 'arrendador/propiedades', component: PropiedadesArrendadorComponent },
